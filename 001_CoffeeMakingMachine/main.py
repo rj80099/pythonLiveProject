@@ -13,19 +13,21 @@ coffee_maker.report()
 money_machine.report()
 
 #  2.check resources sufficient?
-
 while is_on:
     options=menu.get_items()
-    choice =input(f"What would you like? ({options}):")
+    choice = input(f"What would you like? ({options}):")
     if choice =="off":
         is_on=False
-    elif choice=="report":
+    elif choice == "report":
         coffee_maker.report()
         money_machine.report()
-    else:
+    elif choice in menu.menu_item():
         drink=menu.find_drink(choice)
-# 3.Process coins and
-# 4.check transaction sucessful?
+        # 3.Process coins and
+        # 4.check transaction sucessful?
         if coffee_maker.is_resource_sufficient(drink) and money_machine.make_payment(drink.cost):
             # 5.Make coffee
             coffee_maker.make_coffee(drink)
+    else:
+        print("Invalid input..Please try again")
+

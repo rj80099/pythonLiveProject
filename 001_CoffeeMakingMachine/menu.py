@@ -32,3 +32,9 @@ class Menu:
             if item.name == order_name:
                 return item
         print("Sorry that item is not available.")
+
+    def menu_item(self):
+        items=[]
+        for item in self.menu:
+            items.append(item.name)
+        return items
